@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center" android:padding="32dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="YouTube 广告跳过器" android:textSize="24sp" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="自动跳过 YouTube 中的广告" android:textSize="14sp" android:textColor="#757575" android:layout_marginBottom="48dp"/>
+    <TextView android:id="@+id/statusText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="16sp" android:gravity="center" android:layout_marginBottom="32dp"/>
+    <Button android:id="@+id/openSettingsButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp" android:paddingVertical="12dp" android:textSize="16sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="开启后在无障碍设置中找到「YouTube广告跳过器」并打开"
+        android:textSize="12sp" android:textColor="#9E9E9E" android:gravity="center" android:layout_marginTop="24dp"/>
+</LinearLayout>
