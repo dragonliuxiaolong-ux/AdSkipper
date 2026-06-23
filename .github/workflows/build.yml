@@ -13,23 +13,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Download Gradle wrapper jar
-        run: |
-          mkdir -p gradle/wrapper
-          curl -fsSL -o gradle/wrapper/gradle-wrapper.jar https://github.com/nicklockwood/RetroFox/raw/main/gradle/wrapper/gradle-wrapper.jar || \
-          wget -q -O gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar || \
-          (cd /tmp && curl -fsSL -o gradle-8.4-bin.zip https://services.gradle.org/distributions/gradle-8.4-bin.zip && unzip -p gradle-8.4-bin.zip gradle-8.4/lib/plugins/gradle-wrapper-*.jar > gradle/wrapper/gradle-wrapper.jar) || true
-      - name: Install Gradle directly
+      - name: Install Gradle
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip -O /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /opt/gradle
-          export PATH=/opt/gradle/gradle-8.4/bin:$PATH
-          echo "GRADLE_HOME=/opt/gradle/gradle-8.4" >> $GITHUB_ENV
           echo "/opt/gradle/gradle-8.4/bin" >> $GITHUB_PATH
-      - name: Build Release APK
-        run: gradle assembleRelease
+      - name: Build Debug APK
+        run: gradle assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: AdSkipper-APK
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
